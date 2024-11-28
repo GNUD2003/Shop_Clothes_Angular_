@@ -1,0 +1,151 @@
+<div id="carouselExample" class="carousel slide">
+     <div class="carousel-inner">
+          <div class="carousel-item active">
+               <img src="https://res.cloudinary.com/sagacity/image/upload/c_crop,h_3333,w_5000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_auto/SeptemberShop-courtesy_gb1yug.jpg"
+                    style="height: 600px" class="d-block w-100" alt="..." />
+          </div>
+     </div>
+     <!-- <button class="carousel-control-prev btn btn-light" type="button" data-bs-target="#carouselExample"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+     </button>
+     <button class="carousel-control-next btn btn-light" type="button" data-bs-target="#carouselExample"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+     </button> -->
+</div>
+
+<!-- <div class="text-center py-4">
+     <h2 class="fw-bold">Discover Your Style</h2>
+     <p class="text-muted">Explore the best collections tailored just for you.</p>
+</div> -->
+
+<div class="album bg-light">
+     <h2 class="text-body-emphasis text-center py-3">Category</h2>
+     <div class="container">
+          <div class="row row-cols-4 row-cols-md-4 row-cols-lg-4 g-3">
+               <div class="col">
+
+                    <div class="card shadow-sm">
+                         <img src="https://product.hstatic.net/1000306633/product/truoc_a5458ac1af084d18bcb742c0858a9cec.jpg"
+                              alt="">
+                         <div class="card-body">
+                              <div class="d-flex justify-content-center align-items-center">
+                                   <div class="btn-group">
+
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                             [routerLink]="['/category', 2]">Shirt</button>
+
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="col">
+                    <div class="card shadow-sm">
+                         <img src="https://product.hstatic.net/1000306633/product/hd_t10.2600_e87fc3429cd54b2589ecc720a60567c9.jpg"
+                              alt="">
+                         <div class="card-body">
+                              <div class="d-flex justify-content-center align-items-center">
+                                   <div class="btn-group">
+
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                             [routerLink]="['/category', 1]">Trousers</button>
+
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="col">
+                    <div class="card shadow-sm">
+                         <img src="https://product.hstatic.net/1000306633/product/khan_1c1016cc7f5c450783adafa38d181647.jpg"
+                              alt="">
+                         <div class="card-body">
+                              <div class="d-flex justify-content-center align-items-center">
+                                   <div class="btn-group">
+
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                             [routerLink]="['/category', 3]">Accessory</button>
+
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="col">
+                    <div class="card shadow-sm">
+                         <img src="https://product.hstatic.net/1000306633/product/untitled_capture1066_f59c6bb3b46d4b9e899b07424f909096.jpg"
+                              alt="">
+                         <div class="card-body">
+                              <div class="d-flex justify-content-center align-items-center">
+                                   <div class="btn-group">
+
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                             [routerLink]="['/category', 4]">Jacket</button>
+
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
+<div class="text-center py-5">
+     <h1 class="display-3 fw-bold text-uppercase text-body-emphasis">List Product</h1>
+</div>
+
+<div class="container py-4">
+     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+          <div class="col"
+               *ngFor="let product of productList | paginate: { itemsPerPage: 8, currentPage: currentPage }">
+               <ul>
+                    <li>
+                         <div class="details">
+                              <h2>{{ product.name }}</h2>
+                              <p>${{ product.price || 0 }}</p>
+                              <div class="product">
+                                   <img [src]="product.img_product" alt="Product Image">
+                              </div>
+                              <div class="ms-12">
+                                   <button class="btn btn-primary btn-sm me-2" (click)="addToCart(product)">Add To
+                                        Cart</button>
+                                   <button class="btn btn-outline-secondary btn-sm"
+                                        [routerLink]="['/product', product.id]">View</button>
+                              </div>
+                         </div>
+                    </li>
+               </ul>
+          </div>
+     </div>
+     <pagination-controls class="custom-pagination" (pageChange)="currentPage = $event">
+     </pagination-controls>
+
+</div>
+<div class="text-center py-5">
+     <h1 class="display-3 fw-bold text-uppercase text-body-emphasis">Best Seller</h1>
+</div>
+<div class="container py-4">
+     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+          <div class="col" *ngFor="let product of productListBestSeller ">
+               <ul>
+                    <li>
+                         <div class="details">
+                              <h2>{{ product.name }}</h2>
+                              <p>${{ product.price || 0 }}</p>
+                              <div class="product">
+                                   <img [src]="product.img_product" alt="Product Image">
+                              </div>
+                              <div class="ms-12">
+                                   <button class="btn btn-primary btn-sm me-2">Add To Cart</button>
+                                   <button class="btn btn-outline-secondary btn-sm"
+                                        [routerLink]="['/product', product.id]">View</button>
+                              </div>
+                         </div>
+                    </li>
+               </ul>
+          </div>
+     </div>

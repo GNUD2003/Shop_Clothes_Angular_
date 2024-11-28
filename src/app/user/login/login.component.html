@@ -1,0 +1,89 @@
+<div>
+     <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="con">
+               <!-- Header Content -->
+               <div class="mb-4">
+                    <h2 class="text-success">
+                         Login
+                    </h2>
+                    <div>
+                         Don't have an account ?
+                         <a routerLink="/user/register"
+                              class="text-decoration-none fw-medium text-success d-inline-block">
+                              Register</a>
+                    </div>
+
+
+               </div>
+
+               <div class="field-set">
+                    <!-- Username -->
+                    <div class="mb-3">
+                         <span class="input-item">
+                              <i class="fa fa-user-circle"></i>
+                         </span>
+                         <input class="form-input" id="txt-input" type="text" name="userName" placeholder="@UserName"
+                              formControlName="UserName" required>
+
+                         <div class="error-feadback"
+                              *ngIf="hasDisplayableError('UserName') &&form.controls.UserName.hasError('required')">
+                              Please enter your Username
+                         </div>
+                    </div>
+
+                    <br>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                         <span class="input-item">
+                              <i class="fa fa-key"></i>
+                         </span>
+                         <input class="form-input" type="password" name="password" placeholder="Password" id="pwd"
+                              required formControlName="Password">
+
+                         <div class="error-feadback"
+                              *ngIf="hasDisplayableError('Password') &&form.controls.Password.hasError('required')">
+                              Please enter your Password
+                         </div>
+
+                         <!-- Show/hide password -->
+                         <span>
+                              <i class="fa fa-eye" aria-hidden="true" id="eye"></i>
+                         </span>
+                    </div>
+
+                    <br>
+                    <!-- Log In Button -->
+                    <button class="btn login_submit">
+                         <span class="submits"> Log In Now</span>
+                         <i class="button_icon fas fa-chevron-right"></i>
+
+                    </button>
+               </div>
+
+               <!-- Other links -->
+
+               <!-- <div class="other">
+              
+               <a routerLink="/register" class="btn submits sign-up">Sign Up
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+               </a>
+          </div> -->
+
+               <div>
+
+                    <a routerLink="/user/forgotPassword"
+                         class="text-decoration-none fw-medium text-success d-inline-block">
+                         Forgot Password ?</a>
+               </div>
+
+               <div>
+
+                    <a href="/home" class="active">Home</a>
+               </div>
+
+
+
+          </div>
+     </form>
+</div>

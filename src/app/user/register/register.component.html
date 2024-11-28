@@ -1,0 +1,137 @@
+<!-- LOG IN FORM -->
+<form [formGroup]="form" (ngSubmit)="onSunmit()">
+     <div class="con">
+          <!-- Header Content -->
+          <header class="head-form">
+               <h2>Register</h2>
+               <p>Please Register to continue!</p>
+          </header>
+
+          <div class="field-set">
+
+               <!-- Username -->
+               <div class="mb-3">
+                    <span class="input-item">
+                         <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" type="text" placeholder="@UserName"
+                         formControlName="UserName" required>
+
+                    <div class="error-feadback"
+                         *ngIf="hasDisplayableError('UserName') &&form.controls.UserName.hasError('required')">
+                         Please enter your UserName
+                    </div>
+               </div>
+
+               <br>
+
+               <!-- Password -->
+               <div class="mb-3">
+
+                    <span class="input-item">
+                         <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-input" type="password" placeholder="Password" formControlName="Password" id="pwd"
+                         name="password" required>
+
+
+
+                    <div class="error-feadback"
+                         *ngIf="hasDisplayableError('Password') &&form.controls.Password.hasError('required')">
+                         Please enter your password
+                    </div>
+
+
+
+                    <!-- Show/hide password -->
+                    <span>
+                         <i class="fa fa-eye" aria-hidden="true" id="eye"></i>
+                    </span>
+               </div>
+
+
+               <br>
+               <div class="mb-3">
+
+                    <span class="input-item">
+                         <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-input" type="text" placeholder="Full Name" formControlName="FullName"
+                         id="fullname" name="fullname" required>
+
+                    <div class="error-feadback"
+                         *ngIf="hasDisplayableError('FullName') &&form.controls.FullName.hasError('required')">
+                         Please enter your fullname
+                    </div>
+
+               </div>
+
+               <br>
+
+               <div class="mb-3">
+
+                    <span class="input-item">
+                         <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-input" type="date" placeholder="Date Of Birth" formControlName="DateOfBirth"
+                         id="dateOfBirth" name="dateOfBirth" required>
+
+                    <div class="error-feadback"
+                         *ngIf="hasDisplayableError('DateOfBirth') &&form.controls.DateOfBirth.hasError('required')">
+                         Please enter your Date Of Birth
+                    </div>
+
+                    <!-- Show/hide password -->
+               </div>
+
+               <br>
+
+               <div class="mb-3">
+
+                    <span class="input-item">
+                         <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-input" type="text" placeholder="Phone Number" formControlName="PhoneNumber"
+                         id="phone" name="phone" required>
+
+                    <div class="error-feadback"
+                         *ngIf="hasDisplayableError('PhoneNumber') &&form.controls.PhoneNumber.hasError('required')">
+                         Please enter your phone of number
+                    </div>
+               </div>
+
+               <br>
+
+               <div class="mb-3">
+
+                    <span class="input-item">
+                         <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-input" type="email" placeholder="Email" formControlName="Email" id="email"
+                         name="email" required>
+
+                    <div class="error-feadback" *ngIf="hasDisplayableError('Email')">
+                         <div *ngIf="form.controls.Email.hasError('required')">
+                              Please enter your Email
+                         </div>
+                         <div *ngIf="form.controls.Email.hasError('Email')">
+                              Please enter a valid your Email
+                         </div>
+
+                    </div>
+
+
+               </div>
+
+               <br>
+
+
+               <button class="log-in"> Register </button>
+          </div>
+
+          <!-- Other links -->
+          <div> Already have an account ?
+               <a routerLink="/user/login" class="text-decoration-none fw-medium text-success d-inline-block"> Login</a>
+          </div>
+     </div>
+</form>

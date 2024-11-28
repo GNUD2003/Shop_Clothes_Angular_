@@ -1,0 +1,241 @@
+.admin-container {
+     display: flex;
+     height: 100vh;
+     background-color: #f9fafb;
+     /* Màu nền tổng quan nhẹ nhàng */
+}
+
+.sidebar {
+     margin-top: 10px;
+     width: 250px;
+     background-color: #1e90ff;
+     color: #fff;
+     padding: 10px 0;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     border-radius: 10px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar a {
+     display: block;
+     width: 100%;
+     padding: 20px 20px;
+     /* Dịch chữ xuống thấp hơn */
+     box-sizing: border-box;
+     color: #fff;
+     font-size: 18px;
+     /* Tăng kích thước chữ */
+     font-family: 'Arial', sans-serif;
+     text-decoration: none;
+     text-align: left;
+     border-left: 4px solid transparent;
+     transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+     background-color: #ffffff;
+     color: #1e90ff;
+     border-left: 4px solid #1e90ff;
+}
+
+.sidebar a.active {
+     font-weight: bold;
+     background-color: #ffffff;
+     color: #1e90ff;
+     border-left: 4px solid #1e90ff;
+}
+
+.content {
+     flex-grow: 1;
+     padding: 20px;
+     background-color: #f0f8ff;
+     overflow-y: auto;
+     border-radius: 10px;
+}
+
+.dashboard {
+     padding: 20px;
+     background-color: white;
+     border-radius: 8px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+     /* Khoảng cách giữa các thành phần */
+}
+
+.dashboard h1 {
+     color: #333;
+     font-size: 24px;
+     margin-bottom: 20px;
+     font-weight: bold;
+}
+
+.dashboard .col-12 {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 15px;
+     /* Thêm khoảng cách dưới nút Add Product */
+}
+
+.dashboard .btn-warning {
+     padding: 10px 15px;
+     font-size: 14px;
+     border-radius: 6px;
+     background-color: #ffc107;
+     color: #fff;
+     border: none;
+     transition: all 0.3s;
+}
+
+.dashboard .btn-warning:hover {
+     background-color: #e0a800;
+     color: #fff;
+}
+
+.controls-container {
+     display: flex;
+     justify-content: flex-end;
+     /* Đẩy tìm kiếm sang bên phải */
+     align-items: center;
+     gap: 10px;
+     /* Khoảng cách giữa các thành phần */
+}
+
+.controls-container select,
+.controls-container input {
+     width: 20%;
+     /* Thu nhỏ để vừa gọn */
+     padding: 8px;
+     font-size: 14px;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+}
+
+.controls-container button {
+     padding: 8px 16px;
+     font-size: 14px;
+     background-color: #1e90ff;
+     color: white;
+     border: none;
+     border-radius: 6px;
+     cursor: pointer;
+     transition: all 0.3s;
+}
+
+.controls-container button:hover {
+     background-color: #104e8b;
+}
+
+table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-top: 20px;
+     background-color: #fff;
+     border-radius: 8px;
+     overflow: hidden;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+     padding: 12px 15px;
+     text-align: left;
+     font-size: 14px;
+     border-bottom: 1px solid #ddd;
+}
+
+table th {
+     background-color: #1e90ff;
+     color: white;
+     font-weight: bold;
+     text-transform: uppercase;
+}
+
+table tr:hover {
+     background-color: #f1f1f1;
+}
+
+.pagination {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-top: 20px;
+}
+
+.pagination button,
+.pagination span {
+     margin: 0 5px;
+     padding: 8px 12px;
+     border: 1px solid #ddd;
+     cursor: pointer;
+     font-size: 14px;
+     border-radius: 4px;
+     transition: all 0.3s;
+}
+
+.pagination span.active {
+     background-color: orange;
+     color: white;
+     border: 1px solid orange;
+}
+
+.pagination button:hover:not(:disabled) {
+     background-color: #1e90ff;
+     color: white;
+     border: 1px solid #1e90ff;
+}
+
+.modal-header {
+     background-color: #1e90ff;
+     color: white;
+}
+
+.modal-footer button {
+     padding: 10px 15px;
+     border-radius: 6px;
+}
+
+.modal-footer button.btn-danger {
+     background-color: #dc3545;
+     border: none;
+}
+
+.modal-footer button.btn-success {
+     background-color: #28a745;
+     border: none;
+}
+
+.status-pending {
+     background-color: #28a745;
+     /* Màu xanh lá */
+     color: white;
+}
+
+/* Khi approve */
+.status-approve {
+     background-color: #007bff;
+     /* Màu xanh dương */
+     color: white;
+}
+
+/* Khi reject */
+.status-reject {
+     background-color: #dc3545;
+     /* Màu đỏ */
+     color: white;
+}
+
+.detail-image img {
+     max-width: 100px;
+     /* Chiều rộng tối đa */
+     max-height: 100px;
+     /* Chiều cao tối đa */
+     object-fit: cover;
+     /* Đảm bảo ảnh không bị méo */
+     border-radius: 5px;
+     /* Tùy chọn: Bo góc hình ảnh */
+}

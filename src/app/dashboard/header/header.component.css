@@ -1,0 +1,62 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+ }
+
+ /* Styling cho phần header */
+ .header {
+      background-color: #3a3f4b;
+      /* Màu nền tối */
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+ }
+
+ /* Styling cho logo */
+ .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+ }
+
+ /* Styling cho liên kết điều hướng */
+ .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+ }
+
+ .nav-links li {
+      position: relative;
+ }
+
+ .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      padding: 8px 15px;
+      transition: background-color 0.3s;
+      border-radius: 20px;
+ }
+
+ .nav-links a:hover,
+ .nav-links .active {
+      background-color: #ff6c00;
+      /* Màu nền cam */
+      color: #fff;
+ }
+
+ /* Styling cho mũi tên dropdown */
+ .dropdown {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+ }
+
+ .dropdown::after {
+      content: '▼';
+      margin-left: 5px;
+      font-size: 12px;
+ }

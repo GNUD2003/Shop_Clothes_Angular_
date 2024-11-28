@@ -1,0 +1,128 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+.header {
+     background: linear-gradient(90deg, #3a3f4b, #2c2f36);
+     /* Hiệu ứng gradient */
+     padding: 15px 20px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+     /* Đổ bóng */
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+}
+
+/* Logo */
+.logo {
+     font-size: 28px;
+     font-weight: bold;
+     color: #ff6c00;
+     /* Màu nổi bật */
+     font-family: 'Poppins', sans-serif;
+     /* Font đẹp */
+     letter-spacing: 1px;
+     text-transform: uppercase;
+}
+
+/* Menu Icon (hiển thị trên màn hình nhỏ) */
+.menu-icon {
+     display: none;
+     /* Ẩn trên màn hình lớn */
+     font-size: 24px;
+     color: #fff;
+     cursor: pointer;
+}
+
+/* Thanh điều hướng */
+.nav-links {
+     list-style: none;
+     display: flex;
+     gap: 20px;
+     align-items: center;
+     transition: all 0.3s ease;
+}
+
+.nav-links li {
+     position: relative;
+}
+
+/* Liên kết điều hướng */
+.nav-links a,
+.nav-links button {
+     text-decoration: none;
+     color: #fff;
+     font-weight: 500;
+     padding: 10px 20px;
+     border: none;
+     background-color: transparent;
+     border-radius: 30px;
+     cursor: pointer;
+     transition: background-color 0.3s ease, transform 0.3s ease;
+     font-family: 'Poppins', sans-serif;
+     /* Font đẹp */
+}
+
+/* Hiệu ứng hover */
+.nav-links a:hover,
+.nav-links button:hover {
+     background: rgba(255, 108, 0, 0.2);
+     /* Hiệu ứng nền mờ khi hover */
+     color: #ff6c00;
+     transform: scale(1.1);
+     /* Phóng to nhẹ */
+}
+
+/* Liên kết đang active */
+.nav-links .active {
+     background-color: #ff6c00;
+     color: #fff;
+     transform: scale(1.1);
+     box-shadow: 0 4px 6px rgba(255, 108, 0, 0.4);
+     /* Hiệu ứng bóng */
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+     .nav-links {
+          display: none;
+          /* Ẩn mặc định */
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: #3a3f4b;
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 15px;
+          border-radius: 0 0 10px 10px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+     }
+
+     .nav-links.show {
+          display: flex;
+          /* Hiển thị khi click vào menu icon */
+     }
+
+     .menu-icon {
+          display: block;
+          /* Hiển thị trên màn hình nhỏ */
+     }
+
+     .nav-links li {
+          width: 100%;
+          /* Đưa các item full-width */
+     }
+
+     .nav-links a,
+     .nav-links button {
+          width: 100%;
+          text-align: left;
+     }
+}

@@ -1,0 +1,12 @@
+<div *ngIf="user">
+
+     <p><strong>Username:</strong> {{ user.userName }}</p>
+     <p><strong>Phone:</strong> {{ user.phoneNumber }}</p>
+     <p><strong>Email:</strong> {{ user.email }}</p>
+
+     <button class="nav-button" (click)="onChangePassword()">Change Password</button>
+
+</div>
+<div *ngIf="!user">
+     <p>Loading user information...</p>
+</div>

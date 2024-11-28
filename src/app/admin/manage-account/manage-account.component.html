@@ -1,0 +1,133 @@
+<div class="admin-container">
+     <aside class="sidebar">
+          <nav>
+               <ul>
+                    <li><a href="/admin/manageAccount" class="link">Manage Account</a></li>
+                    <li><a href="/admin/manageProduct" class="link">Manage Product</a></li>
+                    <li><a href="/admin/manageOrder" class="link">Manage Order</a></li>
+               </ul>
+          </nav>
+     </aside>
+     <main class="content">
+          <div class="dashboard">
+               <div class="col-12 d-flex justify-content-between align-items-center">
+                    <h1 style="color: blue; margin: 0;">MANAGE-ACCOUNT</h1>
+                    <!-- <button class="btn btn-warning" (click)="openModel()">Add Product</button> -->
+               </div>
+
+               <div class="product-table">
+
+                    <!-- Controls for Search and Page Size -->
+                    <div class="controls-container d-flex align-items-center">
+
+                         <button class="btn btn-warning" (click)="openSoldOut()">Active Account</button>
+
+                         <select id="pageSize" [(ngModel)]="PageSize" (change)="loadUsers()"
+                              class="form-select select-small me-2">
+                              <option *ngFor="let size of [5, 10, 20, 50]" [value]="size">{{ size }}</option>
+                         </select>
+
+                         <!-- Input -->
+                         <input type="text" placeholder="Search for name..." [(ngModel)]="keyword"
+                              class="form-control me-2 search-input" />
+
+                         <!-- Button -->
+                         <button class="btn btn-primary" (click)="onSearch()">Submit</button>
+                    </div>
+
+                    <!-- Product Table -->
+                    <table border="1" cellspacing="0" cellpadding="10" style="width: 100%;">
+                         <thead>
+                              <tr>
+                                   <th>Id</th>
+                                   <th>UserName</th>
+                                   <th>FullName</th>
+                                   <th>Create Time</th>
+                                   <th>DateOfBirth</th>
+                                   <th>Phone Number</th>
+                                   <th>Email</th>
+                                   <th>Action</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr *ngFor="let user of users">
+                                   <td>{{ user.id }}</td>
+                                   <td>{{ user.userName }}</td>
+                                   <td>{{ user.fullName }}</td>
+                                   <td>{{ user.creatTime | date:'dd/MM/yy' }}</td> <!-- Định dạng thời gian -->
+                                   <td>{{ user.dateOfBirth | date:'dd/MM/yy' }}</td> <!-- Định dạng thời gian -->
+                                   <td>{{ user.phoneNumber }}</td>
+                                   <td>{{ user.email }}</td>
+
+                                   <td>
+                                        <button class="btn btn-primary" (click)="onUpdate()">History</button>
+                                        ||
+                                        <button class="btn btn-danger" (click)="onDelete(user.id)">Block</button>
+                                   </td>
+                              </tr>
+                         </tbody>
+                    </table>
+
+                    <!-- Pagination Controls -->
+                    <div class="pagination">
+                         <button (click)="previousPage()" [disabled]="PageNumber <= 1">&laquo;</button>
+                         <span *ngFor="let page of getPageNumbers()" (click)="goToPage(page)"
+                              [class.active]="PageNumber === page">{{ page }}</span>
+                         <button (click)="nextPage()" [disabled]="PageNumber >= totalPages">&raquo;</button>
+                    </div>
+               </div>
+          </div>
+     </main>
+</div>
+
+<!-- Model -->
+<!-- <div class="modal" id="myModal" #myModal>
+     <div class="modal-dialog">
+          <div class="modal-content">
+              
+               <div class="modal-header">
+                    <h4 class="modal-title">Add New Product</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onCloseModel()"></button>
+               </div>
+
+               
+               <div class="modal-body">
+                    <div class="row">
+                         <div class="col-12">
+                              <input type="text" name="name" class="form-control" placeholder="Name"
+                                   [(ngModel)]="formData.name" />
+                         </div>
+                         <div class="col-12">
+                              <input type="number" name="price" class="form-control" placeholder="Price"
+                                   [(ngModel)]="formData.price" />
+                         </div>
+                         <div class="col-12">
+                              <textarea name="description" class="form-control" placeholder="Description"
+                                   [(ngModel)]="formData.description"></textarea>
+                         </div>
+                         <div class="col-6">
+                              <label for="category">Category:</label>
+                              <select name="category" id="category" class="form-control" [(ngModel)]="formData.cateId">
+                                   <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}
+                                   </option>
+                              </select>
+                         </div>
+                         <div class="col-6">
+                              <label for="material">Material:</label>
+                              <select name="material" id="material" class="form-control" [(ngModel)]="formData.mateId">
+                                   <option *ngFor="let material of materials" [value]="material.id">{{ material.name }}
+                                   </option>
+                              </select>
+                         </div>
+                    </div>
+               </div>
+              
+               <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="onCloseModel()">Close</button>
+                    <button type="button" class="btn btn-success" (click)="onSubmit()">
+                         {{ isEditMode ? 'Update' : 'Save' }}
+                    </button>
+               </div>
+          </div>
+     </div>
+</div> -->

@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+     background: #247b57;
+     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAU0lEQVQoU2P8eUjvPwMDA8MLw10gCidgJFrhw88vwCYig5DbS8HcNarRcGFGihRicyhj8ObTYKv7HGTxe4ZohdjcuEUsC2y6z6tp+D1DtEJsjgUAy/UzWeLdm1gAAAAASUVORK5CYII=) repeat;
+     color: #001a23;
+     font-family: 'Raleway', sans-serif;
+     font-size: 5vw;
+}
+
+.container {
+     padding-top: 50px;
+     /* Adjust to make space at the top */
+}
+
+.row {
+     margin-left: 0;
+     margin-right: 0;
+}
+
+ul {
+     display: flex;
+     flex-direction: column;
+     list-style: none;
+     margin: 0;
+     padding: 0;
+}
+
+li {
+     position: relative;
+     background-color: #fff;
+     border-radius: 15px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     overflow: hidden;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.details {
+     position: relative;
+     padding: 15px;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+h2,
+p {
+     margin: 0;
+     padding: 0.5em;
+}
+
+h2 {
+     font-size: 1.2em;
+     background-color: #41c1e2;
+     color: white;
+     border-radius: 8px;
+     margin-bottom: 10px;
+}
+
+p {
+     font-size: 1em;
+     background-color: #e3e3e3;
+     color: rgb(44, 179, 68);
+     border-radius: 8px;
+     margin-bottom: 10px;
+}
+
+.product {
+     flex-grow: 1;
+     overflow: hidden;
+     position: relative;
+}
+
+.product img {
+     width: 100%;
+     height: auto;
+     transition: transform 0.3s ease;
+}
+
+.ms-12 {
+     margin-top: 15px;
+     display: flex;
+     justify-content: space-between;
+}
+
+.ms-12 .btn {
+     padding: 0.5em 1em;
+}
+
+.ms-12 .btn-primary {
+     background-color: #28a745;
+     border: none;
+}
+
+.ms-12 .btn-outline-secondary {
+     border-color: #f9c22e;
+     color: #f9c22e;
+     background-color: transparent;
+}
+
+/* Hover effects */
+li:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+li:hover .product img {
+     transform: scale(1.1);
+}
+
+/* Responsive design */
+@media (min-width: 300px) {
+     body {
+          font-size: 2.75vw;
+     }
+}
+
+@media (min-width: 600px) {
+     body {
+          font-size: 1.95vw;
+     }
+}
+
+@media (min-width: 900px) {
+     body {
+          font-size: 1.5vw;
+     }
+}
+
+@media (min-width: 1200px) {
+     body {
+          font-size: 1.25vw;
+     }
+}
+
+@media (min-width: 1500px) {
+     body {
+          font-size: 1vw;
+     }
+}
+
+.custom-pagination {
+     display: flex;
+     justify-content: center;
+     margin-top: 20px;
+     gap: 10px;
+}
+
+.custom-pagination .ngx-pagination {
+     display: flex;
+     list-style: none;
+     padding: 0;
+     margin: 0;
+}
+
+.custom-pagination .ngx-pagination li {
+     margin: 0 5px;
+}
+
+.custom-pagination .ngx-pagination a,
+.custom-pagination .ngx-pagination span {
+     display: inline-block;
+     padding: 8px 12px;
+     text-decoration: none;
+     color: #007bff;
+     /* Màu xanh chủ đạo */
+     border: 1px solid #ddd;
+     border-radius: 4px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+}
+
+.custom-pagination .ngx-pagination a:hover,
+.custom-pagination .ngx-pagination a:focus {
+     background-color: #007bff;
+     color: #fff;
+}
+
+.custom-pagination .ngx-pagination .current {
+     background-color: #007bff;
+     color: #fff;
+     pointer-events: none;
+     border-color: #007bff;
+}
+
+.custom-pagination .ngx-pagination .disabled {
+     opacity: 0.5;
+     pointer-events: none;
+}
+
+/* home */
+.header {
+     background: linear-gradient(90deg, #3a3f4b, #2c2f36);
+     /* Hiệu ứng gradient */
+     padding: 15px 20px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+     width: 100%;
+     /* Đảm bảo header chiếm toàn bộ chiều rộng */
+}
+
+/* Logo */
+.logo {
+     font-size: 28px;
+     font-weight: bold;
+     color: #ff6c00;
+     font-family: 'Poppins', sans-serif;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+     margin-right: 40px;
+     /* Đảm bảo có khoảng cách với phần menu */
+}
+
+/* Thanh điều hướng */
+.nav-links {
+     list-style: none;
+     display: flex;
+     justify-content: center;
+     /* Căn giữa các mục trong menu */
+     align-items: center;
+     gap: 20px;
+     transition: all 0.3s ease;
+     flex-grow: 1;
+     /* Đảm bảo menu chiếm không gian còn lại */
+}
+
+/* Liên kết điều hướng */
+.nav-links a,
+.nav-links button {
+     text-decoration: none;
+     color: #fff;
+     font-weight: 500;
+     padding: 10px 20px;
+     border: none;
+     background-color: transparent;
+     border-radius: 30px;
+     cursor: pointer;
+     transition: background-color 0.3s ease, transform 0.3s ease;
+     font-family: 'Poppins', sans-serif;
+}
+
+/* Hiệu ứng hover */
+.nav-links a:hover,
+.nav-links button:hover {
+     background: rgba(255, 108, 0, 0.2);
+     color: #ff6c00;
+     transform: scale(1.1);
+}
+
+/* Liên kết đang active */
+.nav-links .active {
+     background-color: #ff6c00;
+     color: #fff;
+     transform: scale(1.1);
+     box-shadow: 0 4px 6px rgba(255, 108, 0, 0.4);
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+     .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: #3a3f4b;
+          width: 100%;
+          flex-direction: column;
+          gap: 10px;
+          padding: 15px;
+          border-radius: 0 0 10px 10px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+     }
+
+     .nav-links.show {
+          display: flex;
+     }
+
+     .menu-icon {
+          display: block;
+     }
+
+     .nav-links li {
+          width: 100%;
+     }
+
+     .nav-links a,
+     .nav-links button {
+          width: 100%;
+          text-align: left;
+     }
+}

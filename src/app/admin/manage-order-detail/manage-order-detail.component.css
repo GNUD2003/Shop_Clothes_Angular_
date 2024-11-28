@@ -1,0 +1,48 @@
+.container {
+     padding: 20px;
+}
+
+.details-container {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 20px;
+}
+
+.detail-card {
+     border: 1px solid #ddd;
+     padding: 10px;
+     width: 300px;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail-image img {
+     width: 100%;
+     height: auto;
+     border-radius: 8px;
+}
+
+.detail-info {
+     margin-top: 10px;
+}
+
+.pagination {
+     display: flex;
+     justify-content: center;
+     margin-top: 20px;
+}
+
+.pagination button {
+     padding: 8px 12px;
+     margin: 0 5px;
+     border: none;
+     background-color: #007bff;
+     color: white;
+     border-radius: 4px;
+     cursor: pointer;
+}
+
+.pagination button:disabled {
+     background-color: #ccc;
+     cursor: not-allowed;
+}

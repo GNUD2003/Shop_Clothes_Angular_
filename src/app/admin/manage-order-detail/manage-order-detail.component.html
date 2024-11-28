@@ -1,0 +1,26 @@
+<div class="container">
+     <h2>Order Details for Order ID: {{ orderId }}</h2>
+
+     <div *ngIf="orderDetails.length === 0" class="no-details">
+          <p>No order details found.</p>
+     </div>
+
+     <div class="details-container" *ngIf="orderDetails.length > 0">
+          <div class="detail-card" *ngFor="let detail of orderDetails">
+               <div class="detail-image">
+                    <img [src]="detail.img_product" alt="Product Image" />
+               </div>
+               <div class="detail-info">
+                    <h3>{{ detail.productName }}</h3>
+                    <p>Quantity: {{ detail.quantity }}</p>
+                    <p>Price: {{ detail.price | currency: '$' }}</p>
+                    <p>Total: {{ detail.price | currency: '$' }}</p>
+               </div>
+          </div>
+     </div>
+
+     <div class="pagination">
+          <button (click)="previousPage()" [disabled]="pageNumber === 1">Previous</button>
+          <button (click)="nextPage()" [disabled]="pageNumber * pageSize >= totalCount">Next</button>
+     </div>
+</div>

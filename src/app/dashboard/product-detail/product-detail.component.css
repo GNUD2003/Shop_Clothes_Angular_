@@ -1,0 +1,13 @@
+.container {
+     max-width: 900px;
+}
+
+.img-fluid {
+     max-height: 500px;
+     object-fit: cover;
+}
+
+.text-danger {
+     font-size: 1.5rem;
+     font-weight: bold;
+}

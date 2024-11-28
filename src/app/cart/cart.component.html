@@ -1,0 +1,81 @@
+<table id="cart" class="table table-bordered" *ngIf="items.length > 0">
+     <caption align="top" class="h3">CARD</caption>
+     <thead>
+          <tr>
+               <th>Name</th>
+               <th>Price</th>
+               <th>Count</th>
+               <th>Total</th>
+          </tr>
+     </thead>
+     <tbody>
+          <tr *ngFor="let item of items">
+               <td>{{ item.name | uppercase }}</td>
+               <td>{{ item.price | number: '1.0-0' }} $</td>
+               <td>
+                    <input [(ngModel)]="item.cout" min="1" type="number" class="form-control" />
+               </td>
+               <td>{{ item.price * item.cout | number: '1.0-0' }} $</td>
+          </tr>
+          <tr>
+               <th colspan="2">Total Count: {{ tongsoluong() }}</th>
+               <th colspan="2">Total Price: {{ tongtien() | number: '1.0-0' }} $</th>
+          </tr>
+          <tr>
+               <td colspan="2"></td>
+               <td colspan="2" class="text-center">
+                    <div class="d-flex justify-content-center gap-2">
+                         <button class="btn btn-outline-danger btn-sm w-50" (click)="clearCart()">
+                              <i class="fas fa-trash"></i> Delete Cart
+                         </button>
+                         <button class="btn btn-primary btn-sm w-50" (click)="BuyOrder()">
+                              <i class="fas fa-shopping-cart"></i> Buy
+                         </button>
+                    </div>
+               </td>
+          </tr>
+     </tbody>
+</table>
+<div class="alert alert-warning text-center p-5 h2" *ngIf="items.length == 0">
+     Your Card Empty !!! OPP!!
+</div>
+
+<div class="modal" id="myModal" #myModal>
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                    <h4 class="modal-title">Order Information</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onCloseModel()"></button>
+               </div>
+
+               <!-- Modal body -->
+               <div class="modal-body">
+                    <div class="row g-3">
+                         <div class="col-12">
+                              <input type="text" name="name" class="form-control" placeholder="Name"
+                                   [(ngModel)]="formData.name" required />
+                         </div>
+                         <div class="col-12">
+                              <input type="text" name="phone" class="form-control" placeholder="Phone Number"
+                                   [(ngModel)]="formData.phoneNumber" required />
+                         </div>
+                         <div class="col-12">
+                              <textarea name="address" class="form-control" placeholder="Address"
+                                   [(ngModel)]="formData.address" required></textarea>
+                         </div>
+                         <div class="col-12">
+                              <textarea name="note" class="form-control" placeholder="Note (Optional)"
+                                   [(ngModel)]="formData.note"></textarea>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Modal footer -->
+               <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="onCloseModel()">Close</button>
+                    <button type="button" class="btn btn-success" (click)="onSubmit()">Submit Order</button>
+               </div>
+          </div>
+     </div>
+</div>
